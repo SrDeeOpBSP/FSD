@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crew Sign On Form</title>
   <style>
     * {
@@ -17,15 +18,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 15px;
       overflow: auto;
     }
 
     form {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      padding: 30px;
-      border-radius: 16px;
+      padding: 25px;
+      border-radius: 12px;
       max-width: 460px;
       width: 100%;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -41,28 +42,28 @@
     h2 {
       text-align: center;
       color: #ffffff;
-      margin-bottom: 25px;
-      font-size: 1.8rem;
+      margin-bottom: 20px;
+      font-size: 1.6rem;
       font-weight: 600;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     label {
       display: block;
-      margin-top: 15px;
+      margin-top: 12px;
       color: #e5e7eb;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 500;
       letter-spacing: 0.5px;
     }
 
     input, select {
       width: 100%;
-      padding: 12px;
-      margin-top: 6px;
+      padding: 10px;
+      margin-top: 5px;
       border: none;
       border-radius: 8px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #1f2937;
       background: rgba(255, 255, 255, 0.9);
       transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
@@ -83,18 +84,18 @@
       appearance: none;
       background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
       background-repeat: no-repeat;
-      background-position: right 12px center;
+      background-position: right 10px center;
     }
 
     button {
       width: 100%;
-      padding: 14px;
-      margin-top: 25px;
+      padding: 12px;
+      margin-top: 20px;
       background: linear-gradient(90deg, #3b82f6, #1d4ed8);
       color: #ffffff;
       border: none;
       border-radius: 8px;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
       position: relative;
@@ -123,16 +124,15 @@
       box-shadow: none;
     }
 
-    /* Spinner styles */
     .spinner {
       display: none;
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       border: 3px solid #ffffff;
       border-top: 3px solid #3b82f6;
       border-radius: 50%;
       animation: spin 0.7s linear infinite;
-      margin-left: 10px;
+      margin-left: 8px;
     }
 
     button.submitting .spinner {
@@ -149,22 +149,68 @@
     }
 
     @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
       form {
         padding: 20px;
         max-width: 100%;
+        border-radius: 10px;
       }
 
       h2 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        margin-bottom: 15px;
       }
 
-      input, select, button {
-        padding: 10px;
+      label {
+        font-size: 0.8rem;
+        margin-top: 10px;
+      }
+
+      input, select {
+        padding: 8px;
         font-size: 0.9rem;
+        border-radius: 6px;
+      }
+
+      select {
+        background-position: right 8px center;
       }
 
       button {
-        font-size: 1rem;
+        padding: 10px;
+        font-size: 0.95rem;
+        margin-top: 15px;
+        border-radius: 6px;
+      }
+
+      .spinner {
+        width: 14px;
+        height: 14px;
+        border-width: 2px;
+        margin-left: 6px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      label {
+        font-size: 0.75rem;
+      }
+
+      input, select {
+        font-size: 0.85rem;
+        padding: 7px;
+      }
+
+      button {
+        font-size: 0.9rem;
+        padding: 8px;
       }
     }
   </style>
@@ -235,14 +281,13 @@
         body: JSON.stringify(formData)
       });
 
-      // Simulate submission delay since no-cors prevents response checking
       setTimeout(() => {
         submitButton.disabled = false;
         submitButton.classList.remove('submitting');
         buttonText.textContent = 'Submit';
         alert("Data submitted successfully!");
         document.getElementById("crewForm").reset();
-      }, 1500); // 1.5 seconds delay for demo
+      }, 1500);
     });
   </script>
 </body>
